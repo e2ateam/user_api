@@ -28,4 +28,8 @@ class NotificationErrorProps
     {
         return $this->context;
     }
+
+    public function serialize(){
+        return get_object_vars($this);
+    }
 }

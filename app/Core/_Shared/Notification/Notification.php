@@ -2,6 +2,8 @@
 
 namespace App\Core\_Shared\Notification;
 
+use App\Core\_Shared\Entity\AbstractEntity;
+
 class Notification
 {
     private $errors = [];
@@ -21,12 +23,15 @@ class Notification
         return $this->errors;
     }
 
-    public function messages(?string $context): string
+    public function messages(?string $context): array
     {
-        $message = "";
+        $message = [];
         foreach($this->errors as $error) {
             if (empty($context) || $error->getContext() === $context) {
-                $message .= $error->getContext() . ': ' . $error->getMessage() . ",";
+                array_push($message, [
+                    'context' => $error->getContext(),
+                    'message' => $error->getMessage(),
+                ]);                
             }
         }
         return $message;

@@ -3,19 +3,23 @@
          xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="vendor/autoload.php"
          colors="true"
+         beStrictAboutCoverageMetadata="true"
 >
     <testsuites>
-        <testsuite name="Unit">
-            <directory suffix="Test.php">./tests/Unit</directory>
+        <testsuite name="UnitTest">
+            <directory suffix="Test.php">./tests</directory>
         </testsuite>
-        <testsuite name="Feature">
-            <directory suffix="Test.php">./tests/Feature</directory>
-        </testsuite>
-    </testsuites>
+    </testsuites>    
     <coverage>
         <include>
-            <directory suffix=".php">./app</directory>
+            <directory suffix=".php">./app/Core</directory>
+            <directory suffix=".php">./app/Http/Controllers</directory>
         </include>
+        <exclude>        
+            <directory suffix=".php">./app/Core/_Share/Entity</directory>
+            <directory suffix=".php">./app/Core/_Share/Enum</directory>        
+            <directory suffix=".php">./app/Core/_Share/Exception</directory> 
+        </exclude>
     </coverage>
     <php>
         <env name="APP_ENV" value="testing"/>
@@ -26,5 +30,5 @@
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
-    </php>
+    </php>    
 </phpunit>
