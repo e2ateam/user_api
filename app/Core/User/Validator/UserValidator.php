@@ -22,12 +22,15 @@ class UserValidator implements IValidator
         $validator = Validator::make(
             $data,
             [
-                'name' => 'required|string|min:3|max:255',
+                'name' => 'required|string|min:3|max:150',
                 'email' => [
                     'required', 
+                    'string',
+                    'email',
+                    'max:255',
                     Rule::unique('users', 'email')->ignore($entity->getId())
                 ],
-                'password' => 'required|string|min:6'
+                'password' => 'required|string|min:6|max:60'
             ]
         ); 
 
