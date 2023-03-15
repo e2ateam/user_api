@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\_Shared\Enum;
+namespace App\Core\Domain\_Shared\Enum;
 
 /**
  * @codeCoverageIgnore

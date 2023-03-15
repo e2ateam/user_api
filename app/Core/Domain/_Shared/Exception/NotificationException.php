@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Core\_Shared\Exception;
+namespace App\Core\Domain\_Shared\Exception;
 
-use App\Core\_Shared\Enum\HttpStatus;
+use App\Core\Domain\_Shared\Enum\HttpStatus;
 
 /**
  * @codeCoverageIgnore

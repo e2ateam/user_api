@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Core\User;
+namespace Tests\Core\Domain\User;
 
-use App\Core\_Shared\Converter\ObjectToArray;
-use App\Core\User\Entity\User;
-use App\Models\User as ModelsUser;
+use App\Core\Domain\_Shared\Converter\ObjectToArray;
+use App\Core\Domain\User\Entity\User;
+use App\Models\User as UserModel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -136,7 +136,7 @@ class UserTest extends TestCase
             'name@yahoo.com.br',
             'password'
         );
-        ModelsUser::factory()->create(ObjectToArray::convert(
+        UserModel::factory()->create(ObjectToArray::convert(
             User::class, 
             $user
         ));

@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Feature\Core\_Share\Notification;
+namespace Tests\Core\Domain\_Share\Notification;
 
-use App\Core\_Shared\Notification\Notification;
-use App\Core\_Shared\Notification\NotificationErrorProps;
+use App\Core\Domain\_Shared\Notification\Notification;
+use App\Core\Domain\_Shared\Notification\NotificationErrorProps;
 use Tests\TestCase;
 
 class NotificationTest extends TestCase

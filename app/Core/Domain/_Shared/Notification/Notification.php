@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Core\_Shared\Notification;
+namespace App\Core\Domain\_Shared\Notification;
 
-use App\Core\_Shared\Entity\AbstractEntity;
+use App\Core\Domain\_Shared\Entity\AbstractEntity;
 
 class Notification
 {
