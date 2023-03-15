@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Core\_Shared\Entity;
+namespace App\Core\Domain\_Shared\Entity;
 
-use App\Core\_Shared\Notification\Notification;
+use App\Core\Domain\_Shared\Notification\Notification;
 use Ramsey\Uuid\Uuid;
 
 /**

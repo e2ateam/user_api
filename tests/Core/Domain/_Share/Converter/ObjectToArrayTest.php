@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Feature\Core\_Share\Converter;
+namespace Tests\Core\Domain\_Share\Converter;
 
-use App\Core\_Shared\Entity\Entity;
-use App\Core\_Shared\Converter\ObjectToArray;
+use App\Core\Domain\_Shared\Entity\Entity;
+use App\Core\Domain\_Shared\Converter\ObjectToArray;
 use Tests\TestCase;
 
 class ObjectToArrayTest extends TestCase

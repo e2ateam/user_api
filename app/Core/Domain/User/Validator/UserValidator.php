@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Core\User\Validator;
+namespace App\Core\Domain\User\Validator;
 
-use App\Core\_Shared\Entity\Entity;
-use App\Core\_Shared\Notification\NotificationErrorProps;
-use App\Core\_Shared\Converter\ObjectToArray;
-use App\Core\_Shared\Validator\IValidator;
-use App\Core\User\Entity\User;
+use App\Core\Domain\_Shared\Entity\Entity;
+use App\Core\Domain\_Shared\Notification\NotificationErrorProps;
+use App\Core\Domain\_Shared\Converter\ObjectToArray;
+use App\Core\Domain\_Shared\Validator\IValidator;
+use App\Core\Domain\User\Entity\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 

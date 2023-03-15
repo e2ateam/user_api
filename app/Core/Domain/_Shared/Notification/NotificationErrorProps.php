@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\_Shared\Notification;
+namespace App\Core\Domain\_Shared\Notification;
 
 class NotificationErrorProps
 {

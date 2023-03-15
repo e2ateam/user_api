@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Core\User\Entity;
+namespace App\Core\Domain\User\Entity;
 
-use App\Core\_Shared\Entity\Entity;
-use App\Core\_Shared\Enum\HttpStatus;
-use App\Core\_Shared\Exception\NotificationException;
-use App\Core\User\Factory\UserValidatorFactory;
+use App\Core\Domain\_Shared\Entity\Entity;
+use App\Core\Domain\_Shared\Enum\HttpStatus;
+use App\Core\Domain\_Shared\Exception\NotificationException;
+use App\Core\Domain\User\Factory\UserValidatorFactory;
 
 class User extends Entity
 {

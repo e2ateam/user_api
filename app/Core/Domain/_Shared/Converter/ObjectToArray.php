@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Core\_Shared\Converter;
+namespace App\Core\Domain\_Shared\Converter;
 
-use App\Core\_Shared\Entity\Entity;
-use App\Core\_Shared\Notification\Notification;
-use SebastianBergmann\Type\ObjectType;
+use App\Core\Domain\_Shared\Entity\Entity;
 
 class ObjectToArray
 {
