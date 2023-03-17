@@ -5,6 +5,7 @@ namespace Tests\Core\Domain\_Shared\Event;
 use App\Core\Domain\_Shared\Event\EventDispatcher;
 use App\Core\Domain\_Shared\Event\EventHandlerInterface;
 use App\Core\Domain\_Shared\Event\Event;
+use App\Core\Domain\_Shared\Formatter\Formatter;
 use Tests\TestCase;
 
 class EventDispatcherTest extends TestCase
@@ -134,7 +135,8 @@ class MockCreateHandler implements EventHandlerInterface
 
     public function handle($event): void
     {
-        echo 'Event occurred at ' . $event->getEvent()->getDataTimeOccurred() .
+        echo 'Event occurred at ' . 
+            Formatter::dateTimeToStr($event->getEvent()->getDataTimeOccurred()) .
             ' with the following payload:\n';
         print_r($event->getEvent()->getEventData());
         $this->spyOn($event);
