@@ -13,7 +13,8 @@ use Illuminate\Http\Request;
  */
 class HttpException extends HttpStatusCodeException
 {
-    public function __construct(string $message, HttpStatus $statusCode) {
+    public function __construct(string $message, HttpStatus $statusCode)
+    {
         parent::__construct($message, $statusCode->value);
     }
 

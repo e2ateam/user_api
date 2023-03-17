@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Core\Domain\_Share\Notification;
+namespace Tests\Core\Domain\_Shared\Notification;
 
 use App\Core\Domain\_Shared\Notification\Notification;
 use App\Core\Domain\_Shared\Notification\NotificationErrorProps;

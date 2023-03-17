@@ -40,11 +40,7 @@ class ObjectToArray
 
         if ($method === 'getNotification') {
             return false;
-        }
-
-        if ($method === 'serialize') {
-            return false;
-        }
+        }        
 
         return true;
     }
