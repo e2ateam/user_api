@@ -1,43 +1,12 @@
 <?php
 
-namespace Tests\Core\Domain\_Share\Event;
+namespace Tests\Core\Domain\_Shared\Event;
 
 use App\Core\Domain\_Shared\Event\EventDispatcher;
 use App\Core\Domain\_Shared\Event\EventHandlerInterface;
 use App\Core\Domain\_Shared\Event\Event;
+use App\Core\Domain\_Shared\Formatter\Formatter;
 use Tests\TestCase;
-
-class CreatedEvent
-{
-    private Event $event;
-
-    public function __construct($eventData)
-    {
-        $this->event = new Event($eventData);
-    }
-}
-
-class MockCreateHandler implements EventHandlerInterface
-{
-    protected $observers = [];
-
-    public function __construct($observer = null)
-    {
-        $this->observers[] = $observer;    
-    }
-
-    public function handle($event): void
-    {
-        $this->spyOn($event);
-    }
-
-    private function spyOn($argument)
-    {
-        foreach ($this->observers as $observer) {
-            $observer->handle($argument);
-        }
-    }
-}
 
 class EventDispatcherTest extends TestCase
 {
@@ -137,5 +106,46 @@ class EventDispatcherTest extends TestCase
         );                                    
 
         $eventDispatcher->notify($event);
+    }
+}
+
+class CreatedEvent
+{
+    private Event $event;
+
+    public function __construct($eventData)
+    {
+        $this->event = new Event($eventData);
+    }
+
+    public function getEvent(): Event
+    {
+        return $this->event;
+    }
+}
+
+class MockCreateHandler implements EventHandlerInterface
+{
+    protected $observers = [];
+
+    public function __construct($observer = null)
+    {
+        $this->observers[] = $observer;    
+    }
+
+    public function handle($event): void
+    {
+        echo 'Event occurred at ' . 
+            Formatter::dateTimeToStr($event->getEvent()->getDateTimeOccurred()) .
+            ' with the following payload:\n';
+        print_r($event->getEvent()->getEventData());
+        $this->spyOn($event);
+    }
+
+    private function spyOn($argument)
+    {
+        foreach ($this->observers as $observer) {
+            $observer->handle($argument);
+        }
     }
 }

@@ -6,21 +6,21 @@ use DateTime;
 
 final class Event
 {
-    private DateTime $dataTimeOccurred;
+    private DateTime $dateTimeOccurred;
     private $eventData;
 
     public function __construct($eventData)
     {
-        $this->dataTimeOccurred = new DateTime();
+        $this->dateTimeOccurred = new DateTime();
         $this->eventData = $eventData;
     }
 
     /**
-     * Get the value of dataTimeOccurred
+     * Get the value of dateTimeOccurred
      */ 
-    public function getDataTimeOccurred()
+    public function getDateTimeOccurred()
     {
-        return $this->dataTimeOccurred;
+        return $this->dateTimeOccurred;
     }
 
     /**
