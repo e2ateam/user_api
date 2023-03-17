@@ -136,7 +136,7 @@ class MockCreateHandler implements EventHandlerInterface
     public function handle($event): void
     {
         echo 'Event occurred at ' . 
-            Formatter::dateTimeToStr($event->getEvent()->getDataTimeOccurred()) .
+            Formatter::dateTimeToStr($event->getEvent()->getDateTimeOccurred()) .
             ' with the following payload:\n';
         print_r($event->getEvent()->getEventData());
         $this->spyOn($event);
