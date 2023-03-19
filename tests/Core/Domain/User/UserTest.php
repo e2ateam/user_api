@@ -3,6 +3,7 @@
 namespace Tests\Core\Domain\User;
 
 use App\Core\Domain\_Shared\Converter\ObjectToArray;
+use App\Core\Domain\_Shared\Converter\PrepareCreatedAtAndUpdatedAt;
 use App\Core\Domain\User\Entity\User;
 use App\Models\User as UserModel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -131,7 +132,7 @@ class UserTest extends TestCase
     public function testTryCreateUserWhenEmailExistsThenThrowEmailException(): void
     {        
         $user = new User(
-            '', 
+            null, 
             'Name', 
             'name@yahoo.com.br',
             'password'
@@ -139,7 +140,7 @@ class UserTest extends TestCase
         UserModel::factory()->create(ObjectToArray::convert(
             User::class, 
             $user
-        ));
+        ));        
         $this->expectExceptionMessage(
             '[{'.
                 '"context":"user",'.
@@ -148,7 +149,7 @@ class UserTest extends TestCase
             '}]',
         );
         new User(
-            '', 
+            null, 
             'Name 1', 
             'name@yahoo.com.br',
             'password'
