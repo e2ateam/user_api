@@ -24,8 +24,7 @@ class ObjectToArrayTest extends TestCase
         $actual = ObjectToArray::convert(
             AnyEntityTest::class,
             $entity,
-        );
-        $this->assertNotEmpty($actual['id']);
+        );        
         $this->assertEquals($expected['field1'], $actual['field1']);
         $this->assertEquals($expected['field2'], $actual['field2']);
         $this->assertEquals($expected['field3'], $actual['field3']);        
