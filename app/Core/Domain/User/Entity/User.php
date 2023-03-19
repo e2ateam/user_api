@@ -6,23 +6,30 @@ use App\Core\Domain\_Shared\Entity\Entity;
 use App\Core\Domain\_Shared\Enum\HttpStatus;
 use App\Core\Domain\_Shared\Exception\NotificationException;
 use App\Core\Domain\User\Factory\UserValidatorFactory;
+use DateTime;
 
 class User extends Entity
 {
-    private ?string $name;
-    private ?string $email;
-    private ?string $password;
+    private string $name;
+    private string $email;
+    private string $password;   
+    private ?DateTime $createdAt; 
+    private ?DateTime $updatedAt;
 
     public function __construct(
         ?string $id,
-        ?string $name, 
-        ?string $email, 
-        ?string $password
+        string $name, 
+        string $email, 
+        string $password,
+        DateTime $createdAt = null,
+        DateTime $updatedAt = null,
     ) {
         parent::__construct($id);
         $this->name = $name;
         $this->email = $email;
         $this->password = $password;
+        $this->createdAt = $createdAt;
+        $this->updatedAt = $updatedAt;
         $this->validate();
     }
 
@@ -77,5 +84,21 @@ class User extends Entity
     public function getPassword(): string
     {
         return $this->password;
+    }
+
+    /**
+     * Get the value of createdAt
+     */ 
+    public function getCreatedAt(): null|DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Get the value of updatedAt
+     */ 
+    public function getUpdatedAt(): null|DateTime
+    {
+        return $this->updatedAt;
     }
 }

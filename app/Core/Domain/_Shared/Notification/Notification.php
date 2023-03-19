@@ -2,8 +2,6 @@
 
 namespace App\Core\Domain\_Shared\Notification;
 
-use App\Core\Domain\_Shared\Entity\AbstractEntity;
-
 class Notification
 {
     private $errors = [];

@@ -3,7 +3,6 @@
 namespace App\Core\Domain\_Shared\Entity;
 
 use App\Core\Domain\_Shared\Notification\Notification;
-use Ramsey\Uuid\Uuid;
 
 /**
  * @codeCoverageIgnore
@@ -15,7 +14,7 @@ class Entity
 
     public function __construct(?string $id)
     {
-        $this->id = $id ?? Uuid::uuid4();
+        $this->id = $id ?? '';
         $this->notification = new Notification();
     }
 
