@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Core\UseCase\User\Create;
+namespace App\Core\UseCase\User\Update;
 
 use App\Core\Domain\User\Factory\UserFactory;
 use App\Core\Domain\User\Repository\IUserRepository;
 use App\Core\Infrastructure\User\Repository\UserRepository;
-use App\Core\UseCase\User\Create\InputCreateUserDto;
-use App\Core\UseCase\User\Create\OutputCreatedUserDto;
+use App\Core\UseCase\User\Update\OutputUpdatedUserDto;
 
-class CreateUserUseCase
+class UpdateUserUseCase
 {
     private IUserRepository $repository;
 
@@ -17,18 +16,18 @@ class CreateUserUseCase
         $this->repository = new UserRepository();    
     }
 
-    public function execute(InputCreateUserDto $input): OutputCreatedUserDto
+    public function execute(InputUpdateUserDto $input): OutputUpdatedUserDto
     {
         $user = UserFactory::create(
-            null,
+            $input->getId(),
             $input->getName(),
             $input->getEmail(),
-            $input->getPassword(),
+            '******',
         );
 
-        $output = $this->repository->create($user);
+        $output = $this->repository->update($user);
 
-        return new OutputCreatedUserDto(
+        return new OutputUpdatedUserDto(
             $output->getId(),
             $output->getName(),
             $output->getEmail(),
