@@ -5,7 +5,6 @@ namespace App\Core\UseCase\User\Update;
 use App\Core\Domain\User\Factory\UserFactory;
 use App\Core\Domain\User\Repository\IUserRepository;
 use App\Core\Infrastructure\User\Repository\UserRepository;
-use App\Core\UseCase\User\Update\OutputUpdatedUserDto;
 
 class UpdateUserUseCase
 {
@@ -16,23 +15,14 @@ class UpdateUserUseCase
         $this->repository = new UserRepository();    
     }
 
-    public function execute(InputUpdateUserDto $input): OutputUpdatedUserDto
+    public function execute(InputUpdateUserDto $input): void
     {
         $user = UserFactory::create(
             $input->getId(),
             $input->getName(),
             $input->getEmail(),
-            '******',
         );
 
-        $output = $this->repository->update($user);
-
-        return new OutputUpdatedUserDto(
-            $output->getId(),
-            $output->getName(),
-            $output->getEmail(),
-            $output->getCreatedAt(),
-            $output->getUpdatedAt(),
-        );
+        $this->repository->update($user);
     }
 }

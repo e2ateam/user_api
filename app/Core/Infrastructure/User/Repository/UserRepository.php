@@ -4,7 +4,10 @@ namespace App\Core\Infrastructure\User\Repository;
 
 use App\Core\Domain\_Shared\Constants\Constants;
 use App\Core\Domain\_Shared\Converter\ObjectToArray;
+use App\Core\Domain\_Shared\Enum\HttpStatus;
+use App\Core\Domain\_Shared\Exception\NotificationException;
 use App\Core\Domain\_Shared\Exception\ObjectNotFoundException;
+use App\Core\Domain\_Shared\Factory\NotificationFactory;
 use App\Core\Domain\User\Entity\User;
 use App\Core\Domain\User\Repository\IUserRepository;
 use App\Models\User as UserModel;
@@ -31,7 +34,17 @@ class UserRepository implements IUserRepository
     public function update(User $input): User
     {         
         $user = $this->findModel($input->getId());
-        $password = $user->password;
+        if ($user->email !== $input->getEmail()) {                        
+            throw new NotificationException(
+                NotificationFactory::create(
+                    'user', 
+                    'email: ' . Constants::FIELD_CANT_BE_CHANGED,
+                )->getErrors(),
+                HttpStatus::HTTP_UNPROCESSABLE_ENTITY
+            );
+        }
+
+        $password = $user->password;        
         $user->fill(ObjectToArray::convert(User::class, $input));
         $user->password = $password;        
         $user->save();

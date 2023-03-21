@@ -21,7 +21,6 @@ class HttpException extends HttpStatusCodeException
     public function render(Request $request)
     {       
         $err = new ApiError(
-            Formatter::dateTimeToStr(new DateTime()),            
             $this->getMessage(),
             $request->getUri(),
         );        

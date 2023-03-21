@@ -6,12 +6,12 @@ class InputUpdateUserDto
 {
     private string $id;
     private string $name;
-    private string $email;    
+    private string $email;
 
-    public function __construct(
+    public function __construct(        
         string $id,
         string $name, 
-        string $email,         
+        string $email,
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -24,19 +24,7 @@ class InputUpdateUserDto
     public function getId(): string
     {
         return $this->id;
-    }
-
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */ 
-    public function setId(string $id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
+    } 
 
     /**
      * Get the value of name
@@ -44,19 +32,7 @@ class InputUpdateUserDto
     public function getName(): string
     {
         return $this->name;
-    }
-
-    /**
-     * Set the value of name
-     *
-     * @return  self
-     */ 
-    public function setName(string $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
+    }    
 
     /**
      * Get the value of email
@@ -64,17 +40,5 @@ class InputUpdateUserDto
     public function getEmail(): string
     {
         return $this->email;
-    }
-
-    /**
-     * Set the value of email
-     *
-     * @return  self
-     */ 
-    public function setEmail(string $email)
-    {
-        $this->email = $email;
-
-        return $this;
     }
 }

@@ -1,29 +1,21 @@
 <?php
 
-namespace App\Core\UseCase\User\Create;
+namespace App\Core\UseCase\User\Authenticated;
 
-use DateTime;
-
-class OutputCreatedUserDto
+class OutputAuthenticatedUserDto
 {
     private string $id;
     private string $name;
     private string $email;    
-    private DateTime $createdAt;
-    private DateTime $updatedAt;
 
     public function __construct(
         string $id,
         string $name,
         string $email,
-        DateTime $createdAt,
-        DateTime $updatedAt,
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
-        $this->createdAt = $createdAt;
-        $this->updatedAt = $updatedAt;
     }    
 
     /**
@@ -48,21 +40,5 @@ class OutputCreatedUserDto
     public function getEmail(): string
     {
         return $this->email;
-    }    
-
-    /**
-     * Get the value of createdAt
-     */ 
-    public function getCreatedAt(): DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Get the value of updatedAt
-     */ 
-    public function getUpdatedAt(): DateTime
-    {
-        return $this->updatedAt;
     }
 }

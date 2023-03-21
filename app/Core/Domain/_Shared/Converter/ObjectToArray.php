@@ -30,7 +30,7 @@ class ObjectToArray
     {
         $replaceGetToSpace = str_replace('get', '', $attr);
         $firstLowerCase = lcfirst($replaceGetToSpace);
-        return ObjectToArray::convertCamelCaseTo_LowerCase($firstLowerCase);
+        return CamelCaseToUnderlineLowerCase::convertString($firstLowerCase);
     }
 
     private static function isAValidMethod(string $method): bool
@@ -44,28 +44,5 @@ class ObjectToArray
         }        
 
         return true;
-    }
-
-    private static function convertCamelCaseTo_LowerCase(string $values): string 
-    {
-        $result = $values;
-        if (ObjectToArray::hasUpperCase($values)) {
-            $result = '';
-            $lenght = strlen($values);
-            for ($cont = 0; $cont < $lenght; $cont++) {
-                if (preg_match('/\p{Lu}/u', $values[$cont])) {
-                    $result .= '_' . strtolower($values[$cont]);
-                    continue;
-                }
-
-                $result .= $values[$cont];
-            }
-        }                
-        return $result;  
-    } 
-
-    private static function hasUpperCase(string $value): bool
-    {
-        return preg_match('/\p{Lu}/u', $value);
     }
 }
