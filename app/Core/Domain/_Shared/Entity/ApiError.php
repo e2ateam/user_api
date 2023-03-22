@@ -9,7 +9,7 @@ use Carbon\Carbon;
 class ApiError
 {
     private Carbon $timestamp;
-    private Object $message;
+    private NotificationErrorProps $message;
     private string $uri;
     
     public function __construct(string $message, string $uri)
@@ -17,7 +17,7 @@ class ApiError
         $this->timestamp = Carbon::now();
         $this->message = ArrayToObject::convert(
             NotificationErrorProps::class, 
-            json_decode($message, true)
+            $message
         );
         $this->uri = $uri;
     }    

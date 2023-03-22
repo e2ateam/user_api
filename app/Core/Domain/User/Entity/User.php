@@ -48,13 +48,7 @@ class User extends Entity
     {
         $this->name = $name;
         $this->validate();
-    }
-
-    public function changeEmail(string $email)
-    {
-        $this->email = $email;
-        $this->validate();
-    }
+    }    
 
     public function changePassword(string $password)
     {

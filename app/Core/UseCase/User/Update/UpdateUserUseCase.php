@@ -2,27 +2,18 @@
 
 namespace App\Core\UseCase\User\Update;
 
-use App\Core\Domain\User\Factory\UserFactory;
 use App\Core\Domain\User\Repository\IUserRepository;
-use App\Core\Infrastructure\User\Repository\UserRepository;
 
 class UpdateUserUseCase
 {
-    private IUserRepository $repository;
-
-    public function __construct()
-    {
-        $this->repository = new UserRepository();    
-    }
+    public function __construct(
+        protected IUserRepository $repository,
+    ) { }
 
     public function execute(InputUpdateUserDto $input): void
     {
-        $user = UserFactory::create(
-            $input->getId(),
-            $input->getName(),
-            $input->getEmail(),
-        );
-
+        $user = $this->repository->find($input->getId());
+        $user->changeName($input->getName());
         $this->repository->update($user);
     }
 }

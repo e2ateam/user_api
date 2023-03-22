@@ -30,7 +30,7 @@ class ObjectToArray
     {
         $replaceGetToSpace = str_replace('get', '', $attr);
         $firstLowerCase = lcfirst($replaceGetToSpace);
-        return CamelCaseToUnderlineLowerCase::convertString($firstLowerCase);
+        return CamelCaseToSnakeCase::convertString($firstLowerCase);
     }
 
     private static function isAValidMethod(string $method): bool

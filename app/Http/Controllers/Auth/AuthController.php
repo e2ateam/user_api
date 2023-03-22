@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Core\Domain\User\Repository\IUserRepository;
 use App\Core\UseCase\User\Create\CreateUserUseCase;
 use App\Core\UseCase\User\Create\InputCreateUserDto;
 use App\Core\UseCase\User\Update\InputUpdateUserDto;
@@ -11,6 +12,10 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
+    public function __construct(
+        protected IUserRepository $repository,
+    ) { }
+
     public function store(Request $request)
     {
         $input = new InputCreateUserDto(
@@ -18,7 +23,7 @@ class AuthController extends Controller
             $request->email ?? '',
             $request->password ?? '',
         );
-        $usecase = new CreateUserUseCase();
+        $usecase = new CreateUserUseCase($this->repository);
         $usecase->execute($input);
         return response()
             ->noContent(201)
@@ -35,7 +40,7 @@ class AuthController extends Controller
             $request->name ?? '',
             $request->email ?? '',            
         );
-        $usecase = new UpdateUserUseCase();
+        $usecase = new UpdateUserUseCase($this->repository);
         $usecase->execute($input);
         return response()
             ->noContent(204)

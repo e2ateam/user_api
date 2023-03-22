@@ -1,9 +1,8 @@
 <?php
 
-namespace Tests\Core\Domain\User;
+namespace Tests\Core\Domain\User\Entity;
 
 use App\Core\Domain\_Shared\Converter\ObjectToArray;
-use App\Core\Domain\_Shared\Converter\PrepareCreatedAtAndUpdatedAt;
 use App\Core\Domain\User\Entity\User;
 use App\Models\User as UserModel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -48,11 +47,10 @@ class UserTest extends TestCase
         $this->assertEquals($user->getPassword(), 'password');
 
         $user->changeName('Name 1');
-        $user->changeEmail('name1@yahoo.com.br');
         $user->changePassword('123456');
-        $this->assertEquals($user->getName(), 'Name 1');
-        $this->assertEquals($user->getEmail(), 'name1@yahoo.com.br');
-        $this->assertEquals($user->getPassword(), '123456');
+        $this->assertEquals('Name 1', $user->getName());
+        $this->assertEquals('name@yahoo.com.br', $user->getEmail());
+        $this->assertEquals('123456', $user->getPassword());
     }    
     
     public function testTryCreateUserWhenNameIsEmptyThenThrowNameException(): void
