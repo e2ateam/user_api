@@ -6,28 +6,28 @@ use App\Core\Domain\_Shared\Entity\Entity;
 use App\Core\Domain\_Shared\Enum\HttpStatus;
 use App\Core\Domain\_Shared\Exception\NotificationException;
 use App\Core\Domain\User\Factory\UserValidatorFactory;
-use DateTime;
+use Carbon\Carbon;
 
 class User extends Entity
 {
     private string $name;
-    private string $email;
+    private ?string $email;
     private string $password;   
-    private ?DateTime $createdAt; 
-    private ?DateTime $updatedAt;
+    private ?Carbon $createdAt; 
+    private ?Carbon $updatedAt;
 
     public function __construct(
         ?string $id,
         string $name, 
-        string $email, 
-        string $password,
-        DateTime $createdAt = null,
-        DateTime $updatedAt = null,
+        ?string $email, 
+        ?string $password = null,
+        Carbon $createdAt = null,
+        Carbon $updatedAt = null,
     ) {
         parent::__construct($id);
         $this->name = $name;
         $this->email = $email;
-        $this->password = $password;
+        $this->password = $password ?? '******';
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
         $this->validate();
@@ -48,13 +48,7 @@ class User extends Entity
     {
         $this->name = $name;
         $this->validate();
-    }
-
-    public function changeEmail(string $email)
-    {
-        $this->email = $email;
-        $this->validate();
-    }
+    }    
 
     public function changePassword(string $password)
     {
@@ -89,7 +83,7 @@ class User extends Entity
     /**
      * Get the value of createdAt
      */ 
-    public function getCreatedAt(): null|DateTime
+    public function getCreatedAt(): null|Carbon
     {
         return $this->createdAt;
     }
@@ -97,7 +91,7 @@ class User extends Entity
     /**
      * Get the value of updatedAt
      */ 
-    public function getUpdatedAt(): null|DateTime
+    public function getUpdatedAt(): null|Carbon
     {
         return $this->updatedAt;
     }

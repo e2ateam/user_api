@@ -13,7 +13,7 @@ class EventDispatcherTest extends TestCase
     public function testShouldRegisterAnEventHandler(): void
     {                 
         $eventDispatcher = new EventDispatcher();
-        $eventHandler = new MockCreateHandler();
+        $eventHandler = new MockCreateEventHandler();
 
         $eventDispatcher->register("CreatedEvent", $eventHandler);
         $dispatcher = $eventDispatcher->getEventHandler('CreatedEvent');
@@ -35,7 +35,7 @@ class EventDispatcherTest extends TestCase
     public function testShouldUnregisterAnEventHandler(): void
     {
         $eventDispatcher = new EventDispatcher();
-        $eventHandler = new MockCreateHandler();
+        $eventHandler = new MockCreateEventHandler();
 
         $eventDispatcher->register('CreatedEvent', $eventHandler);
                 
@@ -61,7 +61,7 @@ class EventDispatcherTest extends TestCase
     public function testShouldUnregisterAllEventHandler(): void
     {
         $eventDispatcher = new EventDispatcher();
-        $eventHandler = new MockCreateHandler();
+        $eventHandler = new MockCreateEventHandler();
 
         $eventDispatcher->register('CreatedEvent', $eventHandler);
                 
@@ -96,7 +96,7 @@ class EventDispatcherTest extends TestCase
             ->with($event);
 
         $eventDispatcher = new EventDispatcher();
-        $eventHandler = new MockCreateHandler($mock);
+        $eventHandler = new MockCreateEventHandler($mock);
 
         $eventDispatcher->register('CreatedEvent', $eventHandler);
 
@@ -124,7 +124,7 @@ class CreatedEvent
     }
 }
 
-class MockCreateHandler implements EventHandlerInterface
+class MockCreateEventHandler implements EventHandlerInterface
 {
     protected $observers = [];
 

@@ -30,20 +30,13 @@ class UserRepository implements IUserRepository
 
     public function update(User $input): User
     {         
-        $user = $this->findModel($input->getId());
-        $password = $user->password;
-        $user->fill(ObjectToArray::convert(User::class, $input));
-        $user->password = $password;        
-        $user->save();
+        $model = $this->findModel($input->getId());
+        $password = $model->password;
+        $model->fill(ObjectToArray::convert(User::class, $input));
+        $model->password = $password;
+        $model->save();
 
-        return new User(
-            $user->id,
-            $input->getName(),
-            $input->getEmail(),  
-            '******',          
-            $user->created_at,
-            $user->updated_at,
-        );
+        return $input;
     }
 
     public function find(string $id): User

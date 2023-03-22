@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Core\Domain\_Share\Formatter;
+namespace Tests\Core\Domain\_Shared\Formatter;
 
 use App\Core\Domain\_Shared\Formatter\Formatter;
 use DateTime;

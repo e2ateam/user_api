@@ -3,6 +3,7 @@
 namespace Tests\Core\Infrastructure\User\Repository;
 
 use App\Core\Domain\_Shared\Exception\ObjectNotFoundException;
+use App\Core\Domain\_Shared\Formatter\Formatter;
 use App\Core\Domain\User\Entity\User;
 use App\Core\Infrastructure\User\Repository\UserRepository;
 use Tests\TestCase;
@@ -53,25 +54,23 @@ class UserRepositoryTest extends TestCase
         $this->assertEquals($user->getName(), $actualCreated->getName());
         $this->assertEquals($user->getEmail(), $actualCreated->getEmail());
         $this->assertNotEmpty($actualCreated->getCreatedAt());
-        $this->assertNotEmpty($actualCreated->getUpdatedAt());
-
-        $user = new User(
-            $actualCreated->getId(),
-            'name 1',
-            'name1@gmail.com',
-            '123456',
-        );
-
-        $user->changeEmail('name2@gmail.com');
-        $user->changeName('name 2');
-
-        $repository->update($user);        
+        $this->assertNotEmpty($actualCreated->getUpdatedAt());        
+        
+        $actualCreated->changeName('name 2');
+        sleep(2);
+        $repository->update($actualCreated);        
         $actualUpdated = $repository->find($output->getId());
 
         $this->assertEquals('name 2', $actualUpdated->getName());
-        $this->assertEquals('name2@gmail.com', $actualUpdated->getEmail());
-        //$this->assertEquals($actualCreated->getCreatedAt(), $actualUpdated->getCreatedAt());
-        //$this->assertNotEquals($actualCreated->getUpdatedAt(), $actualUpdated->getUpdatedAt());
+        $this->assertEquals($user->getEmail(), $actualUpdated->getEmail());
+        $this->assertEquals(
+            Formatter::dateTimeToStr($actualCreated->getCreatedAt()), 
+            Formatter::dateTimeToStr($actualUpdated->getCreatedAt()),
+        );
+        $this->assertNotEquals(
+            Formatter::dateTimeToStr($actualCreated->getUpdatedAt()),
+            Formatter::dateTimeToStr($actualUpdated->getUpdatedAt()),
+        );
     }
 
     public function testShouldFindAllUser(): void
