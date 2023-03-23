@@ -11,10 +11,10 @@ use Throwable;
 class HttpStatusCodeException extends Exception
 {
     public function __construct(
-        string $message = '', 
-        int $code, 
+        string $message,
+        int $code,
         Throwable|null $previous = null
-    ) {          
+    ) {
         parent::__construct($message, $code, $previous);
     }
 }

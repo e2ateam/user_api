@@ -5,7 +5,8 @@ namespace App\Core\UseCase\User\Update;
 class InputUpdateUserDto
 {
     private string $id;
-    private string $name;    
+
+    private string $name;
 
     public function __construct(
         string $id,
@@ -17,15 +18,15 @@ class InputUpdateUserDto
 
     /**
      * Get the value of id
-     */ 
+     */
     public function getId(): string
     {
         return $this->id;
-    } 
+    }
 
     /**
      * Get the value of name
-     */ 
+     */
     public function getName(): string
     {
         return $this->name;

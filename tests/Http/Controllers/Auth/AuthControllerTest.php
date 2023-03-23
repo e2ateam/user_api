@@ -6,37 +6,36 @@ use App\Core\Domain\_Shared\Converter\ObjectToArray;
 use App\Core\UseCase\User\Create\InputCreateUserDto;
 use App\Core\UseCase\User\Update\InputUpdateUserDto;
 use App\Models\User as UserModel;
-use Mockery;
 use Ramsey\Uuid\Uuid;
 use Tests\TestCase;
 
-class AuthControllerTest extends TestCase 
+class AuthControllerTest extends TestCase
 {
     public function setUp(): void
     {
-        parent::setUp();        
+        parent::setUp();
         $this->artisan('migrate:reset');
         $this->artisan('migrate');
-    }    
-    
+    }
+
     public function testStoreShouldReturn201()
     {
         $input = new InputCreateUserDto(
             'name',
             'name@gmail.com',
             '123456',
-        );        
+        );
         $this->actingAs(UserModel::factory()->create())
             ->json(
-                'POST', 
-                route('user.store'), 
+                'POST',
+                route('user.store'),
                 ObjectToArray::convert(InputCreateUserDto::class, $input)
             )
             ->assertCreated();
     }
 
     public function testUpdateShouldReturn204()
-    {            
+    {
         $input = new InputCreateUserDto(
             'name',
             'name@gmail.com',
@@ -44,8 +43,8 @@ class AuthControllerTest extends TestCase
         );
         $this->actingAs(UserModel::factory()->create())
             ->json(
-                'POST', 
-                route('user.store'), 
+                'POST',
+                route('user.store'),
                 ObjectToArray::convert(InputCreateUserDto::class, $input)
             )
             ->assertCreated();
@@ -55,18 +54,18 @@ class AuthControllerTest extends TestCase
             'name',
             'name@gmail.com',
             '123456',
-        );                
+        );
         $this->actingAs(UserModel::factory()->create(), 'api')
             ->json(
-                'PUT', 
-                route('user.update'), 
+                'PUT',
+                route('user.update'),
                 ObjectToArray::convert(InputUpdateUserDto::class, $input)
             )
-            ->assertNoContent();        
+            ->assertNoContent();
     }
 
     public function testUpdateShouldReturn404()
-    {            
+    {
         $input = new InputCreateUserDto(
             'name',
             'name@gmail.com',
@@ -74,8 +73,8 @@ class AuthControllerTest extends TestCase
         );
         $this->actingAs(UserModel::factory()->create())
             ->json(
-                'POST', 
-                route('user.store'), 
+                'POST',
+                route('user.store'),
                 ObjectToArray::convert(InputCreateUserDto::class, $input)
             )
             ->assertCreated();
@@ -85,11 +84,11 @@ class AuthControllerTest extends TestCase
             'name',
             'name@gmail.com',
             '123456',
-        );                
+        );
         $this->actingAs(UserModel::factory()->create())
             ->json(
-                'PUT', 
-                route('user.update'), 
+                'PUT',
+                route('user.update'),
                 ObjectToArray::convert(InputUpdateUserDto::class, $input)
             )
             ->assertForbidden();

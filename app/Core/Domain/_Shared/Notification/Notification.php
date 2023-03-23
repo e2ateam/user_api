@@ -24,14 +24,15 @@ class Notification
     public function messages(?string $context): array
     {
         $message = [];
-        foreach($this->errors as $error) {
+        foreach ($this->errors as $error) {
             if (empty($context) || $error->getContext() === $context) {
                 array_push($message, [
                     'context' => $error->getContext(),
                     'message' => $error->getMessage(),
-                ]);                
+                ]);
             }
         }
+
         return $message;
     }
 }

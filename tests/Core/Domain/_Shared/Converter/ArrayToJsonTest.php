@@ -9,13 +9,13 @@ use Tests\TestCase;
 class ArrayToJsonTest extends TestCase
 {
     public function testConvertArrayToJson(): void
-    {        
+    {
         $actual = ArrayToJson::convert(NotificationFactory::create(
-            'context', 
+            'context',
             'message'
         )->getErrors());
         $expected = '[{"context":"context","message":"message"}]';
 
-        $this->assertEquals($expected, $actual);        
+        $this->assertEquals($expected, $actual);
     }
 }

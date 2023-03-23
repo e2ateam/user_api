@@ -14,7 +14,8 @@ class AuthController extends Controller
 {
     public function __construct(
         protected UserRepositoryInterface $repository,
-    ) { }
+    ) {
+    }
 
     public function store(Request $request)
     {
@@ -25,6 +26,7 @@ class AuthController extends Controller
         );
         $usecase = new CreateUserUseCase($this->repository);
         $usecase->execute($input);
+
         return response()
             ->noContent(201)
             ->withHeaders([
@@ -38,10 +40,11 @@ class AuthController extends Controller
         $input = new InputUpdateUserDto(
             $this->user->id,
             $request->name ?? '',
-            $request->email ?? '',            
+            $request->email ?? '',
         );
         $usecase = new UpdateUserUseCase($this->repository);
         $usecase->execute($input);
+
         return response()
             ->noContent(204)
             ->withHeaders([

@@ -9,39 +9,40 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class UserTest extends TestCase
-{            
+{
     use RefreshDatabase;
 
     public function setUp(): void
     {
-        parent::setUp();             
+        parent::setUp();
 
         try {
-            $this->seed(User::class);            
-        } catch (\Exception $ex) { }
+            $this->seed(User::class);
+        } catch (\Exception $ex) {
+        }
     }
 
     public function testCreateUser(): void
-    {                
+    {
         $user = new User(
             null,
-            'Name', 
-            'name@yahoo.com.br', 
+            'Name',
+            'name@yahoo.com.br',
             'password'
-        );        
+        );
         $this->assertEquals($user->getName(), 'Name');
         $this->assertEquals($user->getEmail(), 'name@yahoo.com.br');
-        $this->assertEquals($user->getPassword(), 'password');                
+        $this->assertEquals($user->getPassword(), 'password');
     }
 
     public function testChangeUser(): void
-    {        
+    {
         $user = new User(
             null,
-            'Name', 
-            'name@yahoo.com.br', 
+            'Name',
+            'name@yahoo.com.br',
             'password'
-        );        
+        );
         $this->assertEquals($user->getName(), 'Name');
         $this->assertEquals($user->getEmail(), 'name@yahoo.com.br');
         $this->assertEquals($user->getPassword(), 'password');
@@ -51,8 +52,8 @@ class UserTest extends TestCase
         $this->assertEquals('Name 1', $user->getName());
         $this->assertEquals('name@yahoo.com.br', $user->getEmail());
         $this->assertEquals('123456', $user->getPassword());
-    }    
-    
+    }
+
     public function testTryCreateUserWhenNameIsEmptyThenThrowNameException(): void
     {
         $this->expectExceptionMessage(
@@ -62,11 +63,11 @@ class UserTest extends TestCase
                 'The name field is required."'.
             '}]',
         );
-        new User('', '', 'name@yahoo.com.br', 'password');         
-    } 
+        new User('', '', 'name@yahoo.com.br', 'password');
+    }
 
     public function testTryCreateUserWhenNameHasLessThan3CharacteresThenThrowNameException(): void
-    {        
+    {
         $this->expectExceptionMessage(
             '[{'.
                 '"context":"user",'.
@@ -74,24 +75,24 @@ class UserTest extends TestCase
                 'The name field must be at least 3 characters."'.
             '}]',
         );
-        new User('', 'ab', 'name@yahoo.com.br', 'password');  
-    } 
-    
+        new User('', 'ab', 'name@yahoo.com.br', 'password');
+    }
+
     public function testTryCreateUserWhenNameHasMoreThan150CharacteresThenThrowNameException(): void
-    {        
+    {
         $this->expectExceptionMessage(
             '[{'.
                 '"context":"user",'.
                 '"message":"name: '.
                 'The name field must not be greater than 150 characters."'.
             '}]',
-        );        
-        $name = str_repeat("a", 151);
-        new User('', $name, 'name@yahoo.com.br', 'password');  
-    } 
+        );
+        $name = str_repeat('a', 151);
+        new User('', $name, 'name@yahoo.com.br', 'password');
+    }
 
     public function testTryCreateUserWhenEmailIsEmptyThenThrowEmailException(): void
-    {                        
+    {
         $this->expectExceptionMessage(
             '[{'.
                 '"context":"user",'.
@@ -101,9 +102,9 @@ class UserTest extends TestCase
         );
         new User('', 'Name', '', 'password');
     }
-    
+
     public function testTryCreateUserWhenEmailIsInvalidThenThrowEmailException(): void
-    {                        
+    {
         $this->expectExceptionMessage(
             '[{'.
                 '"context":"user",'.
@@ -112,10 +113,10 @@ class UserTest extends TestCase
             '}]',
         );
         new User('', 'Name', 'name', 'password');
-    } 
-    
+    }
+
     public function testTryCreateUserWhenEmailHasMoreThan255CharacteresThenThrowEmailException(): void
-    {                        
+    {
         $this->expectExceptionMessage(
             '[{'.
                 '"context":"user",'.
@@ -123,22 +124,22 @@ class UserTest extends TestCase
                 'The email field must not be greater than 255 characters."'.
             '}]',
         );
-        $email = str_repeat("a", 256) . '@gmail.com';
+        $email = str_repeat('a', 256).'@gmail.com';
         new User('', 'Name', $email, 'password');
     }
 
     public function testTryCreateUserWhenEmailExistsThenThrowEmailException(): void
-    {        
+    {
         $user = new User(
-            null, 
-            'Name', 
+            null,
+            'Name',
             'name@yahoo.com.br',
             'password'
         );
         UserModel::factory()->create(ObjectToArray::convert(
-            User::class, 
+            User::class,
             $user
-        ));        
+        ));
         $this->expectExceptionMessage(
             '[{'.
                 '"context":"user",'.
@@ -147,15 +148,15 @@ class UserTest extends TestCase
             '}]',
         );
         new User(
-            null, 
-            'Name 1', 
+            null,
+            'Name 1',
             'name@yahoo.com.br',
             'password'
         );
-    } 
+    }
 
     public function testTryCreateUserWhenPasswordIsEmptyThenThrowPasswordException(): void
-    {                        
+    {
         $this->expectExceptionMessage(
             '[{'.
                 '"context":"user",'.
@@ -167,7 +168,7 @@ class UserTest extends TestCase
     }
 
     public function testTryCreateUserWhenPasswordHasLessThan3CharacteresThenThrowPasswordException(): void
-    {                        
+    {
         $this->expectExceptionMessage(
             '[{'.
                 '"context":"user",'.
@@ -179,7 +180,7 @@ class UserTest extends TestCase
     }
 
     public function testTryCreateUserWhenPasswordHasMoreThan60CharacteresThenThrowPasswordException(): void
-    {                        
+    {
         $this->expectExceptionMessage(
             '[{'.
                 '"context":"user",'.
@@ -187,7 +188,7 @@ class UserTest extends TestCase
                 'The password field must not be greater than 60 characters."'.
             '}]',
         );
-        $password = str_repeat("a", 61);
+        $password = str_repeat('a', 61);
         new User('', 'Name', 'name@yahoo.com.br', $password);
     }
 }

@@ -14,7 +14,7 @@ class UpdateUserUseCaseTest extends TestCase
     {
         parent::setUp();
         $this->artisan('migrate:reset');
-        $this->artisan('migrate');              
+        $this->artisan('migrate');
     }
 
     public function testShouldExecute(): void
@@ -23,13 +23,13 @@ class UpdateUserUseCaseTest extends TestCase
         $input = new InputUpdateUserDto(
             $user->getId(),
             'name 2',
-            'name1@gmail.com',            
+            'name1@gmail.com',
         );
         $mock = $this->mock(MockUserRepository::class, function (MockInterface $mock) {
             $mock->shouldReceive('find', 'update')->once();
         });
         $repository = new MockUserRepository($mock);
         $usecase = new UpdateUserUseCase($repository);
-        $usecase->execute($input);        
+        $usecase->execute($input);
     }
 }

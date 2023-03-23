@@ -2,20 +2,20 @@
 
 namespace Tests\Core\Domain\_Shared\Event;
 
+use App\Core\Domain\_Shared\Event\Event;
 use App\Core\Domain\_Shared\Event\EventDispatcher;
 use App\Core\Domain\_Shared\Event\EventHandlerInterface;
-use App\Core\Domain\_Shared\Event\Event;
 use App\Core\Domain\_Shared\Formatter\Formatter;
 use Tests\TestCase;
 
 class EventDispatcherTest extends TestCase
 {
     public function testShouldRegisterAnEventHandler(): void
-    {                 
+    {
         $eventDispatcher = new EventDispatcher();
         $eventHandler = new MockCreateEventHandler();
 
-        $eventDispatcher->register("CreatedEvent", $eventHandler);
+        $eventDispatcher->register('CreatedEvent', $eventHandler);
         $dispatcher = $eventDispatcher->getEventHandler('CreatedEvent');
 
         $this->assertEquals(
@@ -23,7 +23,7 @@ class EventDispatcherTest extends TestCase
             isset($dispatcher),
         );
         $this->assertCount(
-            1, 
+            1,
             $eventDispatcher->getEventHandler('CreatedEvent'),
         );
         $this->assertSame(
@@ -38,7 +38,7 @@ class EventDispatcherTest extends TestCase
         $eventHandler = new MockCreateEventHandler();
 
         $eventDispatcher->register('CreatedEvent', $eventHandler);
-                
+
         $this->assertSame(
             $eventHandler,
             $eventDispatcher->getEventHandler('CreatedEvent')[0],
@@ -48,12 +48,12 @@ class EventDispatcherTest extends TestCase
         $dispatcher = $eventDispatcher->getEventHandler('CreatedEvent');
 
         $this->assertEquals(
-            true, 
+            true,
             isset($dispatcher)
         );
 
         $this->assertCount(
-            0, 
+            0,
             $eventDispatcher->getEventHandler('CreatedEvent'),
         );
     }
@@ -64,7 +64,7 @@ class EventDispatcherTest extends TestCase
         $eventHandler = new MockCreateEventHandler();
 
         $eventDispatcher->register('CreatedEvent', $eventHandler);
-                
+
         $this->assertSame(
             $eventHandler,
             $eventDispatcher->getEventHandler('CreatedEvent')[0],
@@ -74,9 +74,9 @@ class EventDispatcherTest extends TestCase
         $dispatcher = $eventDispatcher->getEventHandler('CreatedEvent');
 
         $this->assertEquals(
-            false, 
+            false,
             isset($dispatcher)
-        );        
+        );
     }
 
     public function testShouldNotifyAllEventHandlers(): void
@@ -84,7 +84,7 @@ class EventDispatcherTest extends TestCase
         $event = new CreatedEvent([
             'name' => 'Product 1',
             'description' => 'Product 1 description',
-            'price' => 10
+            'price' => 10,
         ]);
 
         $mock = $this->getMockBuilder(EventHandlerInterface::class)
@@ -103,7 +103,7 @@ class EventDispatcherTest extends TestCase
         $this->assertSame(
             $eventHandler,
             $eventDispatcher->getEventHandler('CreatedEvent')[0],
-        );                                    
+        );
 
         $eventDispatcher->notify($event);
     }
@@ -130,13 +130,13 @@ class MockCreateEventHandler implements EventHandlerInterface
 
     public function __construct($observer = null)
     {
-        $this->observers[] = $observer;    
+        $this->observers[] = $observer;
     }
 
     public function handle($event): void
     {
-        echo 'Event occurred at ' . 
-            Formatter::dateTimeToStr($event->getEvent()->getDateTimeOccurred()) .
+        echo 'Event occurred at '.
+            Formatter::dateTimeToStr($event->getEvent()->getDateTimeOccurred()).
             ' with the following payload:\n';
         print_r($event->getEvent()->getEventData());
         $this->spyOn($event);

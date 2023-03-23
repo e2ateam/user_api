@@ -12,10 +12,10 @@ class NotificationTest extends TestCase
     {
         $error = new NotificationErrorProps(
             'customer',
-            'Error message',            
+            'Error message',
         );
         $notification = new Notification();
-        $notification->addError($error);        
+        $notification->addError($error);
         $actual = $notification->messages('customer');
         $this->assertEquals(1, count($actual));
         $this->assertEquals('customer', $actual[0]['context']);
@@ -23,9 +23,9 @@ class NotificationTest extends TestCase
 
         $error = new NotificationErrorProps(
             'customer',
-            'Error message 2',            
-        );        
-        $notification->addError($error);              
+            'Error message 2',
+        );
+        $notification->addError($error);
         $actual = $notification->messages('customer');
         $this->assertEquals(2, count($actual));
         $this->assertEquals('customer', $actual[0]['context']);
@@ -35,8 +35,8 @@ class NotificationTest extends TestCase
 
         $error = new NotificationErrorProps(
             'order',
-            'Error message 3',            
-        );        
+            'Error message 3',
+        );
         $notification->addError($error);
         $actual = $notification->messages('customer');
         $this->assertEquals(2, count($actual));
@@ -44,7 +44,7 @@ class NotificationTest extends TestCase
         $this->assertEquals('Error message', $actual[0]['message']);
         $this->assertEquals('customer', $actual[1]['context']);
         $this->assertEquals('Error message 2', $actual[1]['message']);
-        
+
         $actual = $notification->messages('');
         $this->assertEquals(3, count($actual));
         $this->assertEquals('customer', $actual[0]['context']);
@@ -52,7 +52,7 @@ class NotificationTest extends TestCase
         $this->assertEquals('customer', $actual[1]['context']);
         $this->assertEquals('Error message 2', $actual[1]['message']);
         $this->assertEquals('order', $actual[2]['context']);
-        $this->assertEquals('Error message 3', $actual[2]['message']);        
+        $this->assertEquals('Error message 3', $actual[2]['message']);
     }
 
     public function testShouldCheckIfNotificationHasAtLeastOneError(): void
@@ -78,7 +78,7 @@ class NotificationTest extends TestCase
         $error1 = new NotificationErrorProps(
             'customer',
             'Error message 1',
-        );        
+        );
         $notification->addError($error1);
         $this->assertEquals([$error, $error1], $notification->getErrors());
     }
@@ -88,7 +88,7 @@ class NotificationTest extends TestCase
         $error = new NotificationErrorProps(
             'customer',
             'Error message',
-        );               
+        );
         $error->serialize();
         $this->assertEquals($error->getContext(), 'customer');
         $this->assertEquals($error->getMessage(), 'Error message');

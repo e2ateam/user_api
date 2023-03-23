@@ -8,22 +8,25 @@ use Ramsey\Uuid\Uuid;
 use Tests\Core\Domain\_Shared\Mock\MockRepository;
 
 class MockUserRepository extends MockRepository implements UserRepositoryInterface
-{    
+{
     public function create(User $input): User
     {
         $this->spyCreate($input);
+
         return MockUserRepository::createUser();
     }
 
     public function update(User $input): User
-    {         
+    {
         $this->spyUpdate($input);
+
         return MockUserRepository::createUser();
     }
 
     public function find(string $id): User
     {
         $this->spyFind($id);
+
         return MockUserRepository::createUser();
     }
 
@@ -31,8 +34,9 @@ class MockUserRepository extends MockRepository implements UserRepositoryInterfa
     {
         $this->spyFindAll($pagination);
         $user = MockUserRepository::createUser();
+
         return [$user];
-    }    
+    }
 
     public static function createUser(): User
     {
@@ -41,6 +45,6 @@ class MockUserRepository extends MockRepository implements UserRepositoryInterfa
             'name 1',
             'name1@gmail.com',
             '123456',
-        );        
+        );
     }
 }

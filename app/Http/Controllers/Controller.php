@@ -13,7 +13,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    protected UserModel $user;    
+    protected UserModel $user;
 
     public function isAuthenticated(): void
     {

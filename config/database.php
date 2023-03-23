@@ -44,7 +44,7 @@ return [
         ],
 
         'sqlite_testing' => [
-            'driver' => 'sqlite',            
+            'driver' => 'sqlite',
             'database' => ':memory:',
         ],
 

@@ -14,22 +14,22 @@ class UserRepository implements UserRepositoryInterface
     public function create(User $input): User
     {
         $user = UserModel::factory()->create(ObjectToArray::convert(
-            User::class, 
+            User::class,
             $input
-        ));        
+        ));
 
         return new User(
             $user->id,
             $input->getName(),
             $input->getEmail(),
-            $input->getPassword(),          
+            $input->getPassword(),
             $user->created_at,
             $user->updated_at,
         );
     }
 
     public function update(User $input): User
-    {         
+    {
         $model = $this->findModel($input->getId());
         $password = $model->password;
         $model->fill(ObjectToArray::convert(User::class, $input));
@@ -42,6 +42,7 @@ class UserRepository implements UserRepositoryInterface
     public function find(string $id): User
     {
         $user = $this->findModel($id);
+
         return new User(
             $user->id,
             $user->name,
@@ -49,7 +50,7 @@ class UserRepository implements UserRepositoryInterface
             '******',
             $user->created_at,
             $user->updated_at,
-        ); 
+        );
     }
 
     public function findAll(int $pagination): array
@@ -57,7 +58,7 @@ class UserRepository implements UserRepositoryInterface
         $usersModel = UserModel::paginate($pagination);
 
         $users = [];
-        foreach($usersModel as $userModel) {
+        foreach ($usersModel as $userModel) {
             $user = new User(
                 $userModel->id,
                 $userModel->name,
@@ -78,7 +79,7 @@ class UserRepository implements UserRepositoryInterface
 
         if (empty($user)) {
             throw new ObjectNotFoundException(printf(
-                Constants::OBJECT_NOT_FOUND, 
+                Constants::OBJECT_NOT_FOUND,
                 $id, User::class
             ));
         }

@@ -29,9 +29,9 @@ class CamelCaseToSnakeCaseTest extends TestCase
         ]);
         $keys = array_keys($actual);
         $this->assertEquals(4, count($actual));
-        $this->assertEquals('name', $keys[0]);        
-        $this->assertEquals('name1', $keys[1]);        
-        $this->assertEquals('fullname', $keys[2]);        
+        $this->assertEquals('name', $keys[0]);
+        $this->assertEquals('name1', $keys[1]);
+        $this->assertEquals('fullname', $keys[2]);
         $this->assertEquals('full_name', $keys[3]);
     }
 }

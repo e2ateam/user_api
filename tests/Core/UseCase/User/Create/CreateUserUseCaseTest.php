@@ -12,10 +12,10 @@ class CreateUserUseCaseTest extends TestCase
 {
     protected function setUp(): void
     {
-        parent::setUp();        
+        parent::setUp();
         $this->artisan('migrate:reset');
         $this->artisan('migrate');
-    } 
+    }
 
     public function testShouldExecute(): void
     {
