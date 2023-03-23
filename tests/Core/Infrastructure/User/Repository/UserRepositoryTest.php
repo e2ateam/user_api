@@ -9,13 +9,13 @@ use App\Core\Infrastructure\User\Repository\UserRepository;
 use Tests\TestCase;
 
 class UserRepositoryTest extends TestCase
-{        
+{
     protected function setUp(): void
     {
-        parent::setUp();        
+        parent::setUp();
         $this->artisan('migrate:reset');
         $this->artisan('migrate');
-    }    
+    }
 
     public function testShouldCreateAnUser(): void
     {
@@ -54,17 +54,17 @@ class UserRepositoryTest extends TestCase
         $this->assertEquals($user->getName(), $actualCreated->getName());
         $this->assertEquals($user->getEmail(), $actualCreated->getEmail());
         $this->assertNotEmpty($actualCreated->getCreatedAt());
-        $this->assertNotEmpty($actualCreated->getUpdatedAt());        
-        
+        $this->assertNotEmpty($actualCreated->getUpdatedAt());
+
         $actualCreated->changeName('name 2');
         sleep(2);
-        $repository->update($actualCreated);        
+        $repository->update($actualCreated);
         $actualUpdated = $repository->find($output->getId());
 
         $this->assertEquals('name 2', $actualUpdated->getName());
         $this->assertEquals($user->getEmail(), $actualUpdated->getEmail());
         $this->assertEquals(
-            Formatter::dateTimeToStr($actualCreated->getCreatedAt()), 
+            Formatter::dateTimeToStr($actualCreated->getCreatedAt()),
             Formatter::dateTimeToStr($actualUpdated->getCreatedAt()),
         );
         $this->assertNotEquals(
@@ -110,9 +110,9 @@ class UserRepositoryTest extends TestCase
     }
 
     public function testShouldFindAnUserThenThrowException(): void
-    {        
+    {
         $this->expectException(ObjectNotFoundException::class);
         $repository = new UserRepository();
-        $repository->find(1);        
+        $repository->find(1);
     }
 }

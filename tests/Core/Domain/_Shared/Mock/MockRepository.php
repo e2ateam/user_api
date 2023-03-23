@@ -8,7 +8,7 @@ class MockRepository
 
     public function __construct($observer = null)
     {
-        $this->observers[] = $observer;    
+        $this->observers[] = $observer;
     }
 
     public function spyCreate($input)

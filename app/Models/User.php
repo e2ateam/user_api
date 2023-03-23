@@ -66,13 +66,13 @@ class User extends Authenticatable
     public static function boot()
     {
         parent::boot();
-        static::creating(function(Model $model) {
+        static::creating(function (Model $model) {
             $date = Carbon::now();
             $model->created_at = $date;
             $model->updated_at = $date;
             $model->password = Hash::make($model->password);
         });
-        static::updating(function(Model $model) {
+        static::updating(function (Model $model) {
             $model->updated_at = Carbon::now();
         });
     }

@@ -10,6 +10,7 @@ class ArrayToJson
         foreach ($errors as $error) {
             array_push($errorMsg, $error->serialize());
         }
+
         return json_encode(
             $errorMsg,
             JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE

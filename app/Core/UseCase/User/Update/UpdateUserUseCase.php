@@ -8,7 +8,8 @@ class UpdateUserUseCase
 {
     public function __construct(
         protected UserRepositoryInterface $repository,
-    ) { }
+    ) {
+    }
 
     public function execute(InputUpdateUserDto $input): void
     {

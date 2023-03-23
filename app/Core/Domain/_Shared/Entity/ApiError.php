@@ -9,26 +9,29 @@ use Carbon\Carbon;
 class ApiError
 {
     private Carbon $timestamp;
+
     private NotificationErrorProps $message;
+
     private string $uri;
-    
+
     public function __construct(string $message, string $uri)
     {
         $this->timestamp = Carbon::now();
         $this->message = ArrayToObject::convert(
-            NotificationErrorProps::class, 
+            NotificationErrorProps::class,
             $message
         );
         $this->uri = $uri;
-    }    
+    }
 
-    public function serialize() {
+    public function serialize()
+    {
         return get_object_vars($this);
     }
 
     /**
      * Get the value of timestamp
-     */ 
+     */
     public function getTimestamp(): string
     {
         return $this->timestamp;
@@ -36,7 +39,7 @@ class ApiError
 
     /**
      * Get the value of message
-     */ 
+     */
     public function getMessage(): NotificationErrorProps
     {
         return $this->message;
@@ -44,7 +47,7 @@ class ApiError
 
     /**
      * Get the value of uri
-     */ 
+     */
     public function getUri(): string
     {
         return $this->uri;

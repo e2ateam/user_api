@@ -68,13 +68,14 @@ enum HttpStatus: int
     case HTTP_INSUFFICIENT_STORAGE = 507;                                        // RFC4918
     case HTTP_LOOP_DETECTED = 508;                                               // RFC5842
     case HTTP_NOT_EXTENDED = 510;                                                // RFC2774
-    case HTTP_NETWORK_AUTHENTICATION_REQUIRED = 511;                             // RFC6585    
-        
+    case HTTP_NETWORK_AUTHENTICATION_REQUIRED = 511;                             // RFC6585
+
     /**
      * @codeCoverageIgnore
      */
-    public function getMessages(): array {
-        return array(
+    public function getMessages(): array
+    {
+        return [
             100 => 'Continue',
             101 => 'Switching Protocols',
             102 => 'Processing',            // RFC2518
@@ -136,6 +137,6 @@ enum HttpStatus: int
             508 => 'Loop Detected',                                               // RFC5842
             510 => 'Not Extended',                                                // RFC2774
             511 => 'Network Authentication Required',                             // RFC6585
-        );
+        ];
     }
 }

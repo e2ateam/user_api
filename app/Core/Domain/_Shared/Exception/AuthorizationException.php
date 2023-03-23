@@ -8,8 +8,10 @@ use App\Core\Domain\_Shared\Enum\HttpStatus;
 /**
  * @codeCoverageIgnore
  */
-class AuthorizationException extends HttpException {
-    public function __construct(array $errors) {
+class AuthorizationException extends HttpException
+{
+    public function __construct(array $errors)
+    {
         $json = ArrayToJson::convert($errors);
         parent::__construct($json, HttpStatus::HTTP_FORBIDDEN);
     }

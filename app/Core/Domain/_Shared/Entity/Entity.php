@@ -7,6 +7,7 @@ use App\Core\Domain\_Shared\Notification\Notification;
 class Entity
 {
     private string $id;
+
     private Notification $notification;
 
     public function __construct(?string $id)
@@ -17,7 +18,7 @@ class Entity
 
     /**
      * Get the value of id
-     */ 
+     */
     public function getId(): string
     {
         return $this->id;
@@ -25,7 +26,7 @@ class Entity
 
     /**
      * Get the value of notification
-     */ 
+     */
     public function getNotification(): Notification
     {
         return $this->notification;

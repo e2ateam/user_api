@@ -11,15 +11,19 @@ use Carbon\Carbon;
 class User extends Entity
 {
     private string $name;
+
     private ?string $email;
-    private string $password;   
-    private ?Carbon $createdAt; 
+
+    private string $password;
+
+    private ?Carbon $createdAt;
+
     private ?Carbon $updatedAt;
 
     public function __construct(
         ?string $id,
-        string $name, 
-        ?string $email, 
+        string $name,
+        ?string $email,
         ?string $password = null,
         Carbon $createdAt = null,
         Carbon $updatedAt = null,
@@ -43,12 +47,12 @@ class User extends Entity
             );
         }
     }
-    
+
     public function changeName(string $name)
     {
         $this->name = $name;
         $this->validate();
-    }    
+    }
 
     public function changePassword(string $password)
     {
@@ -58,7 +62,7 @@ class User extends Entity
 
     /**
      * Get the value of name
-     */ 
+     */
     public function getName(): string
     {
         return $this->name;
@@ -66,7 +70,7 @@ class User extends Entity
 
     /**
      * Get the value of email
-     */ 
+     */
     public function getEmail(): string
     {
         return $this->email;
@@ -74,7 +78,7 @@ class User extends Entity
 
     /**
      * Get the value of password
-     */ 
+     */
     public function getPassword(): string
     {
         return $this->password;
@@ -82,7 +86,7 @@ class User extends Entity
 
     /**
      * Get the value of createdAt
-     */ 
+     */
     public function getCreatedAt(): null|Carbon
     {
         return $this->createdAt;
@@ -90,7 +94,7 @@ class User extends Entity
 
     /**
      * Get the value of updatedAt
-     */ 
+     */
     public function getUpdatedAt(): null|Carbon
     {
         return $this->updatedAt;
