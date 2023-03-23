@@ -2,11 +2,9 @@
 
 namespace App\Core\Domain\_Shared\Converter;
 
-use App\Core\Domain\_Shared\Entity\Entity;
-
 class ObjectToArray
 {
-    public static function convert(string $className, Entity $entity): array 
+    public static function convert(string $className, $entity): array 
     {
         $class = new \ReflectionClass($className);
 

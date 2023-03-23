@@ -3,11 +3,11 @@
 namespace Tests\Core\Infrastructure\User\Mock;
 
 use App\Core\Domain\User\Entity\User;
-use App\Core\Domain\User\Repository\IUserRepository;
+use App\Core\Domain\User\Repository\UserRepositoryInterface;
 use Ramsey\Uuid\Uuid;
 use Tests\Core\Domain\_Shared\Mock\MockRepository;
 
-class MockUserRepository extends MockRepository implements IUserRepository
+class MockUserRepository extends MockRepository implements UserRepositoryInterface
 {    
     public function create(User $input): User
     {

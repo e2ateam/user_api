@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Core\Domain\User\Repository\IUserRepository;
+use App\Core\Domain\User\Repository\UserRepositoryInterface;
 use App\Core\UseCase\User\Create\CreateUserUseCase;
 use App\Core\UseCase\User\Create\InputCreateUserDto;
 use App\Core\UseCase\User\Update\InputUpdateUserDto;
@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
     public function __construct(
-        protected IUserRepository $repository,
+        protected UserRepositoryInterface $repository,
     ) { }
 
     public function store(Request $request)

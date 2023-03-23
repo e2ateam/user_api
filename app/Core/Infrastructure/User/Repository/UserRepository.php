@@ -6,10 +6,10 @@ use App\Core\Domain\_Shared\Constants\Constants;
 use App\Core\Domain\_Shared\Converter\ObjectToArray;
 use App\Core\Domain\_Shared\Exception\ObjectNotFoundException;
 use App\Core\Domain\User\Entity\User;
-use App\Core\Domain\User\Repository\IUserRepository;
+use App\Core\Domain\User\Repository\UserRepositoryInterface;
 use App\Models\User as UserModel;
 
-class UserRepository implements IUserRepository
+class UserRepository implements UserRepositoryInterface
 {
     public function create(User $input): User
     {

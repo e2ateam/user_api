@@ -5,12 +5,12 @@ namespace App\Core\Domain\User\Validator;
 use App\Core\Domain\_Shared\Entity\Entity;
 use App\Core\Domain\_Shared\Notification\NotificationErrorProps;
 use App\Core\Domain\_Shared\Converter\ObjectToArray;
-use App\Core\Domain\_Shared\Validator\IValidator;
+use App\Core\Domain\_Shared\Validator\ValidatorInterface;
 use App\Core\Domain\User\Entity\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
-class UserValidator implements IValidator
+class UserValidator implements ValidatorInterface
 {
     public function validate(Entity $entity): void
     {

@@ -3,8 +3,6 @@
 namespace Tests\Core\Domain\_Shared\Converter;
 
 use App\Core\Domain\_Shared\Converter\ArrayToObject;
-use App\Core\Domain\_Shared\Entity\Entity;
-use App\Core\Domain\_Shared\Factory\NotificationFactory;
 use App\Core\Domain\_Shared\Notification\NotificationErrorProps;
 use Tests\TestCase;
 

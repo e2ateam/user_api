@@ -37,7 +37,7 @@ class ApiError
     /**
      * Get the value of message
      */ 
-    public function getMessage(): Object
+    public function getMessage(): NotificationErrorProps
     {
         return $this->message;
     }

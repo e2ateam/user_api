@@ -3,7 +3,6 @@
 namespace Tests\Core\Domain\_Shared\Converter;
 
 use App\Core\Domain\_Shared\Converter\ArrayToJson;
-use App\Core\Domain\_Shared\Entity\Entity;
 use App\Core\Domain\_Shared\Factory\NotificationFactory;
 use Tests\TestCase;
 
