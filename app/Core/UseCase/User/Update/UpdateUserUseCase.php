@@ -2,12 +2,12 @@
 
 namespace App\Core\UseCase\User\Update;
 
-use App\Core\Domain\User\Repository\IUserRepository;
+use App\Core\Domain\User\Repository\UserRepositoryInterface;
 
 class UpdateUserUseCase
 {
     public function __construct(
-        protected IUserRepository $repository,
+        protected UserRepositoryInterface $repository,
     ) { }
 
     public function execute(InputUpdateUserDto $input): void

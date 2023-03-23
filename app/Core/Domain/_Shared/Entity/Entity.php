@@ -4,9 +4,6 @@ namespace App\Core\Domain\_Shared\Entity;
 
 use App\Core\Domain\_Shared\Notification\Notification;
 
-/**
- * @codeCoverageIgnore
- */
 class Entity
 {
     private string $id;
