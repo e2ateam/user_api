@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "038cf85262448ccc7474a0f04b10467f",
+    "content-hash": "d9d0fa306a2be7400d475bb23bff8b42",
     "packages": [
         {
             "name": "brick/math",
@@ -770,6 +770,54 @@
                 }
             ],
             "time": "2022-09-10T18:51:20+00:00"
+        },
+        {
+            "name": "e2ateam/php_shared",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/e2ateam/php_shared.git",
+                "reference": "ceb4206818da271e7a2c8ba0ae906ac27e1695fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/e2ateam/php_shared/zipball/ceb4206818da271e7a2c8ba0ae906ac27e1695fa",
+                "reference": "ceb4206818da271e7a2c8ba0ae906ac27e1695fa",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "^2.66",
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "fakerphp/faker": "^1.9.1",
+                "laravel/pint": "^1.7",
+                "mockery/mockery": "^1.4.4",
+                "phpunit/php-code-coverage": "^10.0",
+                "phpunit/phpunit": "^10.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Src\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eliel Batiston",
+                    "email": "batistondeoliveira@yahoo.com.br"
+                }
+            ],
+            "description": "Library with many common features",
+            "support": {
+                "issues": "https://github.com/e2ateam/php_shared/issues",
+                "source": "https://github.com/e2ateam/php_shared/tree/v1.0.0"
+            },
+            "time": "2023-04-02T18:59:28+00:00"
         },
         {
             "name": "egulias/email-validator",
