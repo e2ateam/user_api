@@ -2,9 +2,9 @@
 
 namespace Tests\Core\Domain\User\Entity;
 
-use E2ateam\Shared\Converter\ObjectToArray;
 use App\Core\Domain\User\Entity\User;
 use App\Models\User as UserModel;
+use E2ateam\Shared\Converter\ObjectToArray;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 

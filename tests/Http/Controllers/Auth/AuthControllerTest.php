@@ -2,10 +2,10 @@
 
 namespace Tests\Http\Controllers\Auth;
 
-use E2ateam\Shared\Converter\ObjectToArray;
 use App\Core\UseCase\User\Create\InputCreateUserDto;
 use App\Core\UseCase\User\Update\InputUpdateUserDto;
 use App\Models\User as UserModel;
+use E2ateam\Shared\Converter\ObjectToArray;
 use Ramsey\Uuid\Uuid;
 use Tests\TestCase;
 
