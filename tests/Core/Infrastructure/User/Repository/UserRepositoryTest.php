@@ -2,8 +2,8 @@
 
 namespace Tests\Core\Infrastructure\User\Repository;
 
-use App\Core\Domain\_Shared\Exception\ObjectNotFoundException;
-use App\Core\Domain\_Shared\Formatter\Formatter;
+use E2ateam\Shared\Exception\ObjectNotFoundException;
+use E2ateam\Shared\Formatter\Formatter;
 use App\Core\Domain\User\Entity\User;
 use App\Core\Infrastructure\User\Repository\UserRepository;
 use Tests\TestCase;

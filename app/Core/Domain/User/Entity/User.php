@@ -2,9 +2,9 @@
 
 namespace App\Core\Domain\User\Entity;
 
-use App\Core\Domain\_Shared\Entity\Entity;
-use App\Core\Domain\_Shared\Enum\HttpStatus;
-use App\Core\Domain\_Shared\Exception\NotificationException;
+use E2ateam\Shared\Entity\Entity;
+use E2ateam\Shared\Enum\HttpStatus;
+use E2ateam\Shared\Exception\NotificationException;
 use App\Core\Domain\User\Factory\UserValidatorFactory;
 use Carbon\Carbon;
 

@@ -5,7 +5,7 @@ namespace Tests\Core\Infrastructure\User\Mock;
 use App\Core\Domain\User\Entity\User;
 use App\Core\Domain\User\Repository\UserRepositoryInterface;
 use Ramsey\Uuid\Uuid;
-use Tests\Core\Domain\_Shared\Mock\MockRepository;
+use E2ateam\Shared\Mock\MockRepository;
 
 class MockUserRepository extends MockRepository implements UserRepositoryInterface
 {

@@ -2,7 +2,7 @@
 
 namespace Tests\Http\Controllers\Auth;
 
-use App\Core\Domain\_Shared\Converter\ObjectToArray;
+use E2ateam\Shared\Converter\ObjectToArray;
 use App\Core\UseCase\User\Create\InputCreateUserDto;
 use App\Core\UseCase\User\Update\InputUpdateUserDto;
 use App\Models\User as UserModel;

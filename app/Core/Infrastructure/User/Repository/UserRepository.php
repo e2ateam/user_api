@@ -2,9 +2,9 @@
 
 namespace App\Core\Infrastructure\User\Repository;
 
-use App\Core\Domain\_Shared\Constants\Constants;
-use App\Core\Domain\_Shared\Converter\ObjectToArray;
-use App\Core\Domain\_Shared\Exception\ObjectNotFoundException;
+use E2ateam\Shared\Constants\Constants;
+use E2ateam\Shared\Converter\ObjectToArray;
+use E2ateam\Shared\Exception\ObjectNotFoundException;
 use App\Core\Domain\User\Entity\User;
 use App\Core\Domain\User\Repository\UserRepositoryInterface;
 use App\Models\User as UserModel;
