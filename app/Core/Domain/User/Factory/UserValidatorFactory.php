@@ -2,8 +2,8 @@
 
 namespace App\Core\Domain\User\Factory;
 
-use E2ateam\Shared\Validator\ValidatorInterface;
 use App\Core\Domain\User\Validator\UserValidator;
+use E2ateam\Shared\Validator\ValidatorInterface;
 
 class UserValidatorFactory
 {

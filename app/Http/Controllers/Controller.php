@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User as UserModel;
 use E2ateam\Shared\Exception\AuthorizationException;
 use E2ateam\Shared\Factory\NotificationFactory;
-use App\Models\User as UserModel;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;

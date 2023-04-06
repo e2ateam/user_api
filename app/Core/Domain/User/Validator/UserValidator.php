@@ -2,11 +2,11 @@
 
 namespace App\Core\Domain\User\Validator;
 
+use App\Core\Domain\User\Entity\User;
 use E2ateam\Shared\Converter\ObjectToArray;
 use E2ateam\Shared\Entity\Entity;
 use E2ateam\Shared\Notification\NotificationErrorProps;
 use E2ateam\Shared\Validator\ValidatorInterface;
-use App\Core\Domain\User\Entity\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 

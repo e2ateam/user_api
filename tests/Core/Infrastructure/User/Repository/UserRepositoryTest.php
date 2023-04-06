@@ -2,10 +2,10 @@
 
 namespace Tests\Core\Infrastructure\User\Repository;
 
-use E2ateam\Shared\Exception\ObjectNotFoundException;
-use E2ateam\Shared\Formatter\Formatter;
 use App\Core\Domain\User\Entity\User;
 use App\Core\Infrastructure\User\Repository\UserRepository;
+use E2ateam\Shared\Exception\ObjectNotFoundException;
+use E2ateam\Shared\Formatter\Formatter;
 use Tests\TestCase;
 
 class UserRepositoryTest extends TestCase

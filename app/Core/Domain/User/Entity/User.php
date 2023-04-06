@@ -2,11 +2,11 @@
 
 namespace App\Core\Domain\User\Entity;
 
+use App\Core\Domain\User\Factory\UserValidatorFactory;
+use Carbon\Carbon;
 use E2ateam\Shared\Entity\Entity;
 use E2ateam\Shared\Enum\HttpStatus;
 use E2ateam\Shared\Exception\NotificationException;
-use App\Core\Domain\User\Factory\UserValidatorFactory;
-use Carbon\Carbon;
 
 class User extends Entity
 {
