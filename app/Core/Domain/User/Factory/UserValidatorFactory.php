@@ -2,7 +2,7 @@
 
 namespace App\Core\Domain\User\Factory;
 
-use App\Core\Domain\_Shared\Validator\ValidatorInterface;
+use E2ateam\Shared\Validator\ValidatorInterface;
 use App\Core\Domain\User\Validator\UserValidator;
 
 class UserValidatorFactory

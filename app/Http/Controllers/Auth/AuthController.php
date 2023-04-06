@@ -30,7 +30,7 @@ class AuthController extends Controller
         return response()
             ->noContent(201)
             ->withHeaders([
-                'location' => route('user.show'),
+                'location' => route('user.index'),
             ]);
     }
 
@@ -48,7 +48,7 @@ class AuthController extends Controller
         return response()
             ->noContent(204)
             ->withHeaders([
-                'location' => route('user.show'),
+                'location' => route('user.index'),
             ]);
     }
 }
