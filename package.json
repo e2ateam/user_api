@@ -10,11 +10,12 @@
     "devDependencies": {
         "axios": "^1.1.2",
         "laravel-vite-plugin": "^0.7.2",
-        "vite": "^4.0.0",    
+        "vite": "^4.0.0",
         "@commitlint/cli": "^17.5.1",
         "@commitlint/config-conventional": "^17.4.4",
         "@semantic-release/changelog": "^6.0.3",
         "@semantic-release/git": "^10.0.1",
         "semantic-release": "^21.0.0"
-    }
+    },
+    "version": "1.0.0"
 }
