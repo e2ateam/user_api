@@ -6,7 +6,7 @@
  * https://cylab.be/blog/114/fail-a-phpunit-test-if-coverage-goes-below-a-threshold
  */
 if ($argc != 3) {
-    echo 'Usage: '.$argv[0].' <path/to/index.xml> <threshold>';
+    echo 'Usage: '.$argv[0].' <path/to/index.xml> <threshold>' . PHP_EOL;
     exit(-1);
 }
 
