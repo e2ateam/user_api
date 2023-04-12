@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/e2ateam/user_api/compare/v1.0.0...v1.1.0) (2023-04-12)
+
+
+### Features
+
+* update php_shared library ([#39](https://github.com/e2ateam/user_api/issues/39)) ([9e41a26](https://github.com/e2ateam/user_api/commit/9e41a26ad931f9c7d9910a543c245df4cd41de18))
+
 # 1.0.0 (2023-04-11)
 
 
