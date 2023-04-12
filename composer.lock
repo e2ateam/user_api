@@ -773,16 +773,16 @@
         },
         {
             "name": "e2ateam/php_shared",
-            "version": "v1.1.2",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/e2ateam/php_shared.git",
-                "reference": "ed4043da91b5017d0124270df9d5606b67e6ba19"
+                "reference": "1e2682e0b9dde8ac5fa9583021dfdca9d23b84f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/e2ateam/php_shared/zipball/ed4043da91b5017d0124270df9d5606b67e6ba19",
-                "reference": "ed4043da91b5017d0124270df9d5606b67e6ba19",
+                "url": "https://api.github.com/repos/e2ateam/php_shared/zipball/1e2682e0b9dde8ac5fa9583021dfdca9d23b84f9",
+                "reference": "1e2682e0b9dde8ac5fa9583021dfdca9d23b84f9",
                 "shasum": ""
             },
             "require": {
@@ -815,9 +815,9 @@
             "description": "Library with many common features",
             "support": {
                 "issues": "https://github.com/e2ateam/php_shared/issues",
-                "source": "https://github.com/e2ateam/php_shared/tree/v1.1.2"
+                "source": "https://github.com/e2ateam/php_shared/tree/v1.2.0"
             },
-            "time": "2023-04-06T16:01:05+00:00"
+            "time": "2023-04-12T00:59:16+00:00"
         },
         {
             "name": "egulias/email-validator",
