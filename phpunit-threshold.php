@@ -6,7 +6,7 @@
  * https://cylab.be/blog/114/fail-a-phpunit-test-if-coverage-goes-below-a-threshold
  */
 if ($argc != 3) {
-    echo 'Usage: '.$argv[0].' <path/to/index.xml> <threshold>' . PHP_EOL;
+    echo 'Usage: '.$argv[0].' <path/to/index.xml> <threshold>'.PHP_EOL;
     exit(-1);
 }
 
@@ -16,12 +16,12 @@ $threshold = (float) $argv[2];
 $coverage = simplexml_load_file($file);
 $ratio = (float) $coverage->project->directory->totals->lines['percent'];
 
-echo "Line coverage: $ratio%" . PHP_EOL;
-echo "Threshold: $threshold%" . PHP_EOL;
+echo "Line coverage: $ratio%".PHP_EOL;
+echo "Threshold: $threshold%".PHP_EOL;
 
 if ($ratio > 0 && $ratio < $threshold) {
-    echo 'FAILED!' . PHP_EOL;
+    echo 'FAILED!'.PHP_EOL;
     exit(-1);
 }
 
-echo 'SUCCESS!' . PHP_EOL;
+echo 'SUCCESS!'.PHP_EOL;
