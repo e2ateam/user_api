@@ -95,11 +95,6 @@ class UserRepositoryTest extends TestCase
         $repository->create($user2);
 
         $actual = $repository->findAll(0);
-        
-        echo "AQUI =============================";
-        print_r($actual);
-        echo "AQUI =============================";
-
         $this->assertEquals(2, count($actual));
         $this->assertNotEmpty($actual[0]->getId());
         $this->assertEquals($user1->getName(), $actual[0]->getName());
