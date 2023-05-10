@@ -53,8 +53,9 @@
         "lint": "./vendor/bin/pint",
         "lint-dirty": "./vendor/bin/pint --dirty",
         "test": "vendor/bin/phpunit --testdox",
-        "coverage": "vendor/bin/phpunit --testdox --coverage-html=target/coverage/report/ && vendor/bin/phpunit --coverage-xml target/coverage/review && php phpunit-threshold.php target/coverage/review/index.xml 95",
-        "docker-up": "sudo systemctl start docker && vendor/bin/sail up -d && docker exec -it condominio_backend bash",
+        "coverage:report": "vendor/bin/phpunit --testdox --coverage-html=target/coverage/report/",
+        "coverage": "vendor/bin/phpunit --coverage-xml target/coverage/review && php phpunit-threshold.php target/coverage/review/index.xml 95",
+        "docker-up": "sudo systemctl start docker && vendor/bin/sail up -d && docker exec -it user_api bash",
         "docker-down": "vendor/bin/sail down"
     },
     "extra": {
